@@ -61,6 +61,7 @@ $TCA['tx_f2portfolio_domain_model_tag'] = array (
 
 t3lib_extMgm::addLLrefForTCAdescr('tx_f2portfolio_domain_model_images','EXT:f2portfolio/Resources/Private/Language/locallang_csh_tx_f2portfolio_domain_model_images.xml');
 t3lib_extMgm::allowTableOnStandardPages('tx_f2portfolio_domain_model_images');
+
 $TCA['tx_f2portfolio_domain_model_images'] = array (
 	'ctrl' => array (
 		'title'             => 'LLL:EXT:f2portfolio/Resources/Private/Language/locallang_db.xml:tx_f2portfolio_domain_model_images',
@@ -74,6 +75,7 @@ $TCA['tx_f2portfolio_domain_model_images'] = array (
 		'transOrigPointerField' 	=> 'l18n_parent',
 		'transOrigDiffSourceField' 	=> 'l18n_diffsource',
 		'delete' 			=> 'deleted',
+                'hideTable'                     => true,
 		'enablecolumns' 	=> array(
 			'disabled' => 'hidden'
 			),
