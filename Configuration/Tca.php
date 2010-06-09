@@ -7,7 +7,7 @@ $TCA['tx_f2portfolio_domain_model_project'] = array(
 		'showRecordFieldList' => 'name,description,outstanding,date,tags,images'
 	),
 	'types' => array(
-		'1' => array('showitem' => 'name,description,outstanding,date,tags,images')
+		'1' => array('showitem' => 'name,description;;2;richtext:rte_transform[flag=rte_enabled|mode=ts];4-4-4,outstanding,date,tags,images')
 	),
 	'palettes' => array(
 		'1' => array('showitem' => '')
@@ -63,17 +63,29 @@ $TCA['tx_f2portfolio_domain_model_project'] = array(
 			'label'   => 'LLL:EXT:f2portfolio/Resources/Private/Language/locallang_db.xml:tx_f2portfolio_domain_model_project.name',
 			'config'  => array(
 				'type' => 'input',
-				'size' => 30,
+				'size' => 50,
 				'eval' => 'trim,required'
 			)
 		),
-		'description' => array(
-			'exclude' => 0,
-			'label'   => 'LLL:EXT:f2portfolio/Resources/Private/Language/locallang_db.xml:tx_f2portfolio_domain_model_project.description',
-			'config'  => array(
-				'type' => 'input',
-				'size' => 30,
-				'eval' => 'trim'
+		'description' => Array (
+			'label' => 'LLL:EXT:lang/locallang_general.php:LGL.text',
+			'l10n_mode' => $l10n_mode,
+			'config' => Array (
+				'type' => 'text',
+				'cols' => '50',
+				'rows' => '5',
+				'softref' => 'typolink_tag,images,email[subst],url',
+				'wizards' => Array(
+					'_PADDING' => 4,
+					'RTE' => Array(
+						'notNewRecords' => 1,
+						'RTEonly' => 1,
+						'type' => 'script',
+						'title' => 'LLL:EXT:cms/locallang_ttc.php:bodytext.W.RTE',
+						'icon' => 'wizard_rte2.gif',
+						'script' => 'wizard_rte.php',
+					),
+				)
 			)
 		),
 		'outstanding' => array(
@@ -132,7 +144,7 @@ $TCA['tx_f2portfolio_domain_model_tag'] = array(
 		'showRecordFieldList' => 'name,description,projects'
 	),
 	'types' => array(
-		'1' => array('showitem' => 'name,description,projects')
+		'1' => array('showitem' => 'name,description;;2;richtext:rte_transform[flag=rte_enabled|mode=ts];4-4-4,projects')
 	),
 	'palettes' => array(
 		'1' => array('showitem' => '')
@@ -192,13 +204,25 @@ $TCA['tx_f2portfolio_domain_model_tag'] = array(
 				'eval' => 'trim,required'
 			)
 		),
-		'description' => array(
-			'exclude' => 0,
-			'label'   => 'LLL:EXT:f2portfolio/Resources/Private/Language/locallang_db.xml:tx_f2portfolio_domain_model_tag.description',
-			'config'  => array(
-				'type' => 'input',
-				'size' => 30,
-				'eval' => 'trim'
+		'description' => Array (
+			'label' => 'LLL:EXT:lang/locallang_general.php:LGL.text',
+			'l10n_mode' => $l10n_mode,
+			'config' => Array (
+				'type' => 'text',
+				'cols' => '50',
+				'rows' => '5',
+				'softref' => 'typolink_tag,images,email[subst],url',
+				'wizards' => Array(
+					'_PADDING' => 4,
+					'RTE' => Array(
+						'notNewRecords' => 1,
+						'RTEonly' => 1,
+						'type' => 'script',
+						'title' => 'LLL:EXT:cms/locallang_ttc.php:bodytext.W.RTE',
+						'icon' => 'wizard_rte2.gif',
+						'script' => 'wizard_rte.php',
+					),
+				)
 			)
 		),
                 "projects" => Array (
@@ -295,7 +319,7 @@ $TCA['tx_f2portfolio_domain_model_images'] = array(
 				'size' => 3,
 				'autoSizeMax' => 15,
 				'maxitems' => '99',
-				'minitems' => '0'
+				'minitems' => '0',
 			)
 		),
 		'alttext' => array(
@@ -303,7 +327,7 @@ $TCA['tx_f2portfolio_domain_model_images'] = array(
 			'label'   => 'LLL:EXT:f2portfolio/Resources/Private/Language/locallang_db.xml:tx_f2portfolio_domain_model_images.alttext',
 			'config'  => array(
 				'type' => 'input',
-				'size' => 30,
+				'size' => 50,
 				'eval' => 'trim'
 			)
 		),
@@ -311,8 +335,9 @@ $TCA['tx_f2portfolio_domain_model_images'] = array(
 			'exclude' => 0,
 			'label'   => 'LLL:EXT:f2portfolio/Resources/Private/Language/locallang_db.xml:tx_f2portfolio_domain_model_images.longdesc',
 			'config'  => array(
-				'type' => 'input',
-				'size' => 30,
+				'type' => 'text',
+                                'cols' => 50,
+                                'rows' => 5,
 				'eval' => 'trim'
 			)
 		),
@@ -320,8 +345,9 @@ $TCA['tx_f2portfolio_domain_model_images'] = array(
 			'exclude' => 0,
 			'label'   => 'LLL:EXT:f2portfolio/Resources/Private/Language/locallang_db.xml:tx_f2portfolio_domain_model_images.description',
 			'config'  => array(
-				'type' => 'input',
-				'size' => 30,
+				'type' => 'text',
+                                'cols' => 50,
+                                'rows' => 5,
 				'eval' => 'trim'
 			)
 		),
