@@ -30,5 +30,34 @@
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  */
 class Tx_F2portfolio_Domain_Repository_ProjectRepository extends Tx_Extbase_Persistence_Repository {
+    /**
+     * List of projects marked as outstanding
+     * @param integer $limit
+     * @return array
+     */
+    public function findOutstandings($limit = 5){
+        $query = $this->createQuery();
+        return $query->matching(
+                        $query->equals('outstanding', true)
+                )
+                ->setOrderings(array('date' => Tx_Extbase_Persistence_QueryInterface::ORDER_DESCENDING))
+                ->setLimit((integer)$limit)
+                ->execute();
+    }
+
+    /**
+     * List of projects ordered by date descending
+     * @param integer $limit
+     * @return array
+     */
+    public function findLatests($limit = 5){
+        $query = $this->createQuery();
+        return $query
+                ->setOrderings(array('date' => Tx_Extbase_Persistence_QueryInterface::ORDER_DESCENDING))
+                ->setLimit((integer)$limit)
+                ->execute();
+
+    }
+
 }
 ?>
