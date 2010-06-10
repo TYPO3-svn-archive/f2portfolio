@@ -34,12 +34,18 @@
  */
 
 // TODO: As your extension matures, you should use Tx_Extbase_MVC_Controller_ActionController as base class, instead of the ScaffoldingController used below.
-class Tx_F2portfolio_Controller_ProjectController extends Tx_ExtbaseKickstarter_Scaffolding_AbstractScaffoldingController {
+class Tx_F2portfolio_Controller_ProjectController extends Tx_Extbase_MVC_Controller_ActionController {
 	
 	/**
 	 * @var Tx_F2portfolio_Domain_Repository_ProjectRepository
 	 */
 	protected $projectRepository;
+
+        /**
+	 * @var Tx_F2portfolio_Domain_Repository_TagRepository
+	 */
+	protected $tagRepository;
+
 
 	/**
 	 * Initializes the current action
@@ -48,19 +54,40 @@ class Tx_F2portfolio_Controller_ProjectController extends Tx_ExtbaseKickstarter_
 	 */
 	protected function initializeAction() {
 		$this->projectRepository = t3lib_div::makeInstance('Tx_F2portfolio_Domain_Repository_ProjectRepository');
+                $this->tagRepository = t3lib_div::makeInstance('Tx_F2portfolio_Domain_Repository_TagRepository');
 	}
 	##TOKEN FOR SCAFFOLDING. Will be replaced by the necessary actions for Create, Read, Update and Delete queries by the kickstarter, when using scaffold2file.
 	# DO NOT REMOVE THIS TOKEN!##
 	
 
 	
-	/**
-	 * list action
-	 *
-	 * @return string The rendered list action
-	 */
-	public function listAction() {
-	}
+        /**
+         * @return string rendered main action
+         */
+        public function mainAction(){
+            $tags = $this->tagRepository->findAll();
+
+
+        }
+
+        /**
+         * @param Tx_F2portfolio_Domain_Model_Tag $selectedTag Tag to filter by
+         * @return string rendered view of projects by tag
+         */
+        public function listByTagAction(Tx_F2portfolio_Domain_Model_Tag $selectedTag = NULL){
+
+        }
+
+        /**
+         *
+         * @param Tx_F2portfolio_Domain_Model_Project $selectedProject The project to display
+         * @return string rendered view of the selected project
+         */
+        public function showAction(Tx_F2portfolio_Domain_Model_Project $selectedProject = NULL){
+
+        }
+
+
 	
 }
 ?>

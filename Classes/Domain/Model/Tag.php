@@ -46,7 +46,12 @@ class Tx_F2portfolio_Domain_Model_Tag extends Tx_Extbase_DomainObject_AbstractEn
 	 * @var string
 	 */
 	protected $description;
-	
+
+        /**
+	 * projects
+	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_F2portfolio_Domain_Model_Project>
+	 */
+	protected $projects;
 	
 	
 	/**
@@ -85,6 +90,45 @@ class Tx_F2portfolio_Domain_Model_Tag extends Tx_Extbase_DomainObject_AbstractEn
 	 */
 	public function getDescription() {
 		return $this->description;
+	}
+
+        /**
+	 * Setter for projects
+	 *
+	 * @param Tx_Extbase_Persistence_ObjectStorage<Tx_F2portfolio_Domain_Model_Project> $projects projects
+	 * @return void
+	 */
+	public function setProjects(Tx_Extbase_Persistence_ObjectStorage $projects) {
+		$this->projects = $projects;
+	}
+
+	/**
+	 * Getter for projects
+	 *
+	 * @return Tx_Extbase_Persistence_ObjectStorage<Tx_F2portfolio_Domain_Model_Project> projects
+	 */
+	public function getProjects() {
+		return $this->projects;
+	}
+
+	/**
+	 * Adds a Project
+	 *
+	 * @param Tx_F2portfolio_Domain_Model_Project The Project to be added
+	 * @return void
+	 */
+	public function addProject(Tx_F2portfolio_Domain_Model_Project $project) {
+		$this->project->attach($project);
+	}
+
+	/**
+	 * Removes a Project
+	 *
+	 * @param Tx_F2portfolio_Domain_Model_Project The Project to be removed
+	 * @return void
+	 */
+	public function removeTag(Tx_F2portfolio_Domain_Model_Project $project) {
+		$this->projects->detach($project);
 	}
 	
 }

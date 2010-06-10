@@ -5,10 +5,10 @@ Tx_Extbase_Utility_Extension::configurePlugin(
 	$_EXTKEY,
 	'Pi1',
 	array(
-		'Project' => 'index, show, new, create, edit, update, delete','Tag' => 'index, show, new, create, edit, update, delete',
+		'Project' => 'main, show, listByTag',
 	),
 	array(
-		'Project' => 'create, update, delete','Tag' => 'create, update, delete',
+		'Project' => 'main, show, listByTag',  
 	)
 );
 
