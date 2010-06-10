@@ -77,6 +77,7 @@ class Tx_F2portfolio_Controller_ProjectController extends Tx_Extbase_MVC_Control
          */
         public function listByTagAction(Tx_F2portfolio_Domain_Model_Tag $selectedTag = NULL){
             $this->view->assign('projects', $selectedTag->getProjects());
+            $this->view->assign('tag', $selectedTag);
         }
 
         /**
