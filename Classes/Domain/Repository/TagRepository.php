@@ -30,5 +30,14 @@
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  */
 class Tx_F2portfolio_Domain_Repository_TagRepository extends Tx_Extbase_Persistence_Repository {
+    
+    /**
+     *
+     * @param Tx_F2portfolio_Domain_Model_Tag $tag tag to count by
+     * @return int number of projects assigned to this tag
+     */
+    public function getCountProjectsByTag(Tx_F2portfolio_Domain_Model_Tag $tag){
+
+    }
 }
 ?>

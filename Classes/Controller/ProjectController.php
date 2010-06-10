@@ -66,7 +66,8 @@ class Tx_F2portfolio_Controller_ProjectController extends Tx_Extbase_MVC_Control
          */
         public function mainAction(){
             $tags = $this->tagRepository->findAll();
-
+            $projects = $this->projectRepository->findAll();
+            //var_dump($projects[0]);
 
         }
 
