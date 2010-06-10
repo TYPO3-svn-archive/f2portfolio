@@ -131,5 +131,11 @@ class Tx_F2portfolio_Domain_Model_Tag extends Tx_Extbase_DomainObject_AbstractEn
 		$this->projects->detach($project);
 	}
 	
+        /**
+         * @return int number of projects that has this tag
+         */
+        public function getCountProjects(){
+            return $this->projects->count();
+        }
 }
 ?>
