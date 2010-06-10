@@ -3,9 +3,9 @@
 /***************************************************************
 *  Copyright notice
 *
-*  (c) 2010 Fernando H 
-*  			Fernando A 
-*  			
+*  (c) 2010 Fernando H
+*  			Fernando A
+*
 *  All rights reserved
 *
 *  This script is part of the TYPO3 project. The TYPO3 project is
@@ -76,7 +76,7 @@ class Tx_F2portfolio_Controller_ProjectController extends Tx_Extbase_MVC_Control
          * @return string rendered view of projects by tag
          */
         public function listByTagAction(Tx_F2portfolio_Domain_Model_Tag $selectedTag = NULL){
-
+            $this->view->assign('projects', $selectedTag->getProjects());
         }
 
         /**
@@ -85,7 +85,7 @@ class Tx_F2portfolio_Controller_ProjectController extends Tx_Extbase_MVC_Control
          * @return string rendered view of the selected project
          */
         public function showAction(Tx_F2portfolio_Domain_Model_Project $selectedProject = NULL){
-
+            $this->view->assign('selectedProject', $selectedProject);
         }
 
 
