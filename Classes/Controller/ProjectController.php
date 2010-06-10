@@ -126,11 +126,6 @@ class Tx_F2portfolio_Controller_ProjectController extends Tx_Extbase_MVC_Control
             $this->view->assign('selectedProject', $selectedProject);
         }
 
-        private function buildArrayForTagcloud($tags){
-            $tagcloudItems = array();
-
-            return $tagcloudItems;
-        }
 
 	
 }
