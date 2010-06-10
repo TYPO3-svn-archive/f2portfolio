@@ -36,13 +36,7 @@ class Tx_F2portfolio_Domain_Repository_ProjectRepository extends Tx_Extbase_Pers
      * @return array
      */
     public function findOutstandings($limit = 5){
-        $query = $this->createQuery();
-        return $query->matching(
-                        $query->equals('outstanding', true)
-                )
-                ->setOrderings(array('date' => Tx_Extbase_Persistence_QueryInterface::ORDER_DESCENDING))
-                ->setLimit((integer)$limit)
-                ->execute();
+        return $this->findLatests($limit, true);
     }
 
     /**
@@ -50,13 +44,33 @@ class Tx_F2portfolio_Domain_Repository_ProjectRepository extends Tx_Extbase_Pers
      * @param integer $limit
      * @return array
      */
-    public function findLatests($limit = 5){
+    public function findLatests($limit = 5,$findOutstandings){
         $query = $this->createQuery();
-        return $query
-                ->setOrderings(array('date' => Tx_Extbase_Persistence_QueryInterface::ORDER_DESCENDING))
-                ->setLimit((integer)$limit)
-                ->execute();
-
+        switch($findOutstandings){
+            
+            case true:
+                return $query->matching(
+                            $query->equals('outstanding', true)
+                    )
+                    ->setOrderings(array('date' => Tx_Extbase_Persistence_QueryInterface::ORDER_DESCENDING))
+                    ->setLimit((integer)$limit)
+                    ->execute();
+                break;
+            case false:
+                return $query->matching(
+                            $query->equals('outstanding', false)
+                    )
+                    ->setOrderings(array('date' => Tx_Extbase_Persistence_QueryInterface::ORDER_DESCENDING))
+                    ->setLimit((integer)$limit)
+                    ->execute();
+                break;
+            default:
+                return $query
+                        ->setOrderings(array('date' => Tx_Extbase_Persistence_QueryInterface::ORDER_DESCENDING))
+                        ->setLimit((integer)$limit)
+                        ->execute();
+                break;
+        }
     }
 
 }

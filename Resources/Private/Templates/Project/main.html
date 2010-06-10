@@ -1,6 +1,6 @@
 {namespace f2portfolio=Tx_F2portfolio_ViewHelpers}
 <f:layout name="default" />
 <f:section name="content">
-    <h1>Main view</h1>
+    <f:cObject typoscriptObjectPath="plugin.tx_f2portfolio.settings.main.preContent" />
     <f2portfolio:tagcloud tagcloudItems="{tagcloudItems}" />
 </f:section>

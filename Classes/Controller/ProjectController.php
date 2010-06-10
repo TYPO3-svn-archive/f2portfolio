@@ -101,9 +101,11 @@ class Tx_F2portfolio_Controller_ProjectController extends Tx_Extbase_MVC_Control
             //END TagCloud
 
             //BEGIN Outstanding projects list
-            var_dump($this->projectRepository->findOutstandings(2));
-            var_dump($this->projectRepository->findLatests());
-            //TODO: poner un parametro por configuracion que indique el numero minimo de proyectos a motrar en portada y si no se llenan con los destacados rellenarlos con los ultimos prooyectos
+            $outstandingProjects = $this->projectRepository->findOutstandings();
+            if(count($outstandingProjects)<$this->settings['main']['maxProjects']){
+                $outstandingProjects = array_merge($outstandingProjects,$this->projectRepository->findLatests($this->settings['main']['maxProjects']-count($outstandingProjects),false));
+            }
+            $this->view->assign('outstandignProjects',$outstandingProjects);
             //END Outstanding projects list
 
         }
