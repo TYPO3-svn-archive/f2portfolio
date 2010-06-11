@@ -8,7 +8,7 @@ CREATE TABLE tx_f2portfolio_domain_model_project (
 	outstanding tinyint(1) unsigned DEFAULT '0' NOT NULL,
 	date int(11) DEFAULT '0' NOT NULL,
 	tags int(11) unsigned DEFAULT '0' NOT NULL,
-	images int(11) unsigned DEFAULT '0',
+	images varchar(100) DEFAULT '',
 
 	tstamp int(11) unsigned DEFAULT '0' NOT NULL,
 	crdate int(11) unsigned DEFAULT '0' NOT NULL,
@@ -109,8 +109,8 @@ CREATE TABLE tx_f2portfolio_project_tag_mm (
 	sorting int(11) unsigned DEFAULT '0' NOT NULL,
 	sorting_foreign int(11) unsigned DEFAULT '0' NOT NULL,
 	
-	tstamp int(10) unsigned NOT NULL,
-	crdate int(10) unsigned NOT NULL,
+	tstamp int(10) unsigned DEFAULT '0' NOT NULL,
+	crdate int(10) unsigned DEFAULT '0' NOT NULL,
 	hidden tinyint(3) unsigned DEFAULT '0' NOT NULL,
 
 	PRIMARY KEY (uid),
