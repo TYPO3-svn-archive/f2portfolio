@@ -67,7 +67,7 @@ class Tx_F2portfolio_Domain_Model_Project extends Tx_Extbase_DomainObject_Abstra
 	
 	/**
 	 * images
-	 * @var Tx_F2portfolio_Domain_Model_images
+	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_F2portfolio_Domain_Model_images>
 	 */
 	protected $images;
 	
