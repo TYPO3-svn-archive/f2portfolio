@@ -196,25 +196,46 @@ class Tx_F2portfolio_Domain_Model_Project extends Tx_Extbase_DomainObject_Abstra
 	public function removeTag(Tx_F2portfolio_Domain_Model_Tag $tag) {
 		$this->tags->detach($tag);
 	}
-	
-	/**
+
+        /**
 	 * Setter for images
 	 *
-	 * @param Tx_F2portfolio_Domain_Model_images $images images
+	 * @param Tx_Extbase_Persistence_ObjectStorage<Tx_F2portfolio_Domain_Model_images> $images images
 	 * @return void
 	 */
-	public function setImages(Tx_F2portfolio_Domain_Model_images $images) {
+	public function setImages(Tx_Extbase_Persistence_ObjectStorage $images) {
 		$this->images = $images;
 	}
 
 	/**
 	 * Getter for images
 	 *
-	 * @return Tx_F2portfolio_Domain_Model_images images
+	 * @return Tx_Extbase_Persistence_ObjectStorage<Tx_F2portfolio_Domain_Model_images> images
 	 */
 	public function getImages() {
 		return $this->images;
 	}
+
+	/**
+	 * Adds a Image
+	 *
+	 * @param Tx_F2portfolio_Domain_Model_images The Image to be added
+	 * @return void
+	 */
+	public function addImage(Tx_F2portfolio_Domain_Model_images $image) {
+		$this->images->attach($image);
+	}
+
+	/**
+	 * Removes a Image
+	 *
+	 * @param Tx_F2portfolio_Domain_Model_images The Image to be removed
+	 * @return void
+	 */
+	public function removeImage(Tx_F2portfolio_Domain_Model_Tag $image) {
+		$this->image->detach($image);
+	}
+
 	
 }
 ?>
