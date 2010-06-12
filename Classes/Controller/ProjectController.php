@@ -44,7 +44,7 @@ class TagcloudItem implements ITagCloudItem{
     public function  __construct(Tx_F2portfolio_Domain_Model_Tag $tag, Tx_Extbase_MVC_Web_Routing_UriBuilder $uriBuilder) {
         $this->name = $tag->getName();
         $this->weight = $tag->getProjects()->count();
-        $this->url = $uriBuilder->uriFor('listByTag',array($tag));
+        $this->url = $uriBuilder->uriFor('list',array('selectedTag'=>$tag));
     }
 
     public function getName() {
@@ -102,7 +102,7 @@ class Tx_F2portfolio_Controller_ProjectController extends Tx_Extbase_MVC_Control
 
             //BEGIN Outstanding projects list
             $outstandingProjects = $this->projectRepository->findOutstandings();
-            if(count($outstandingProjects)<$this->settings['main']['maxProjects']){
+            if(count($outstandingProjects)<$this->settings['main']['maxProjects']['projectsList']){
                 $outstandingProjects = array_merge($outstandingProjects,$this->projectRepository->findLatests($this->settings['main']['maxProjects']-count($outstandingProjects),false));
             }
             $this->view->assign('outstandignProjects',$outstandingProjects);
@@ -114,7 +114,7 @@ class Tx_F2portfolio_Controller_ProjectController extends Tx_Extbase_MVC_Control
          * @param Tx_F2portfolio_Domain_Model_Tag $selectedTag Tag to filter by
          * @return string rendered view of projects by tag
          */
-        public function listByTagAction(Tx_F2portfolio_Domain_Model_Tag $selectedTag = NULL){
+        public function listAction(Tx_F2portfolio_Domain_Model_Tag $selectedTag = NULL){
             $this->view->assign('projects', $selectedTag->getProjects());
             $this->view->assign('tag', $selectedTag);
         }
