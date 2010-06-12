@@ -8,25 +8,12 @@ plugin.tx_f2portfolio.settings {
         projectsList{
             maxProjects = 3
         }
+        stylesheet = EXT:Resources/Public/Stylesheets/f2portfolio.css
+    }
+    list{
+        stylesheet = EXT:Resources/Public/Stylesheets/f2portfolio.css
+    }
+    show{
+        stylesheet = EXT:Resources/Public/Stylesheets/f2portfolio.css
     }
 }
-
-plugin.tx_f2portfolio._CSS_DEFAULT_STYLE (
-	input.f3-form-error {
-		background-color:#FF9F9F;
-		border: 1px #FF0000 solid;
-	}
-
-	.tx-f2portfolio-pi1 table {
-		border-collapse:separate;
-		border-spacing:10px;
-	}
-
-	.tx-f2portfolio-pi1 table th {
-		font-weight:bold;
-	}
-
-	.tx-f2portfolio-pi1 table td {
-		vertical-align:top;
-	}
-)

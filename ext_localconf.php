@@ -8,7 +8,7 @@ Tx_Extbase_Utility_Extension::configurePlugin(
 		'Project' => 'main, show, list',
 	),
 	array(
-		'Project' => 'main, show, list',  
+		'Project' => 'main, show, list',
 	)
 );
 

@@ -92,6 +92,8 @@ class Tx_F2portfolio_Controller_ProjectController extends Tx_Extbase_MVC_Control
             $tags = $this->tagRepository->findAll();
             $projects = $this->projectRepository->findAll();
 
+            $this->addStylesheet();
+
             //BEGIN TagCloud
             $tagcloudItems =array();
             foreach($tags as $tag){
@@ -128,7 +130,22 @@ class Tx_F2portfolio_Controller_ProjectController extends Tx_Extbase_MVC_Control
             $this->view->assign('selectedProject', $selectedProject);
         }
 
+        /**
+         * Adds a CSS file if configured for that view if TypoScript
+         */
+	private function addStylesheet(){
+            $stylesheet = $this->settings[$this->request->getControllerActionName()]['stylesheet'];
+            // "EXT:" shortcut replaced with the extension path
+            $stylesheet = str_replace('EXT:', t3lib_extMgm::siteRelPath('f2portfolio'), $stylesheet);
 
-	
+            //different solution to add the css if the action is cached or uncached
+            if($this->request->isCached()){ 
+                $GLOBALS['TSFE']->getPageRenderer()->addCssFile($stylesheet);
+            }else{
+
+                $this->response->addAdditionalHeaderData('<link rel="stylesheet" type="text/css" href="'.
+                        $stylesheet.'" media="all" />');
+            }
+        }
 }
 ?>
