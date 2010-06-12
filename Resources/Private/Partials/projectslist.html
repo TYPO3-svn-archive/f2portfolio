@@ -1,0 +1,15 @@
+<div class="projectslist">
+        <f:for each="{projects}" as="project">
+            <div class="projectmini">
+                    <h4>{project.name}</h4>
+                    <f:format.crop maxCharacters="200" respectWordBoundaries="true"><f:format.html >{project.description}</f:format.html></f:format.crop>
+                    <f:for each="{project.images}" as="image">
+                        <f:if condition="{image.name} == Thumbnail">
+                        <f:then>
+                            <f:image src="uploads/pics/{image.file}" alt="{image.alttext}" width="200px" />
+                        </f:then>
+                        </f:if>
+                    </f:for>
+            </div>
+        </f:for>
+</div>
