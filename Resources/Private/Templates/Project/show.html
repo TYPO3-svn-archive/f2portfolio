@@ -1,4 +1,11 @@
 <f:layout name="default" />
 <f:section name="content">
     <h1>Show view</h1>
+    <h2>{selectedProject.name}</h2>
+    <p>{selectedProject.description}</p>
+    <div class="imageslist">
+        <f:for each="{selectedProject.images}" as="image">
+            <f:image src="uploads/pics/{image.file}" alt="{image.alttext}" width="200px" />
+        </f:for>
+    </div>
 </f:section>
