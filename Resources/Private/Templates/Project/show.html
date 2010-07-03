@@ -10,7 +10,7 @@
     </div>
     <div class="imageslist">
         <f:for each="{selectedProject.images}" as="image">
-            <f:image src="uploads/pics/{image.file}" alt="{image.alttext}" width="200px" />
+            <a href="uploads/pics/{image.file}"><f:image src="uploads/pics/{image.file}" alt="{image.alttext}" width="200px" /></a>
         </f:for>
     </div>
 </f:section>
