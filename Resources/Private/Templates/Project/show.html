@@ -1,8 +1,13 @@
 <f:layout name="default" />
 <f:section name="content">
     <h1>Show view</h1>
-    <h2>{selectedProject.name}</h2>
-    <p>{selectedProject.description}</p>
+    <div class="projectDetail">
+        <h2>{selectedProject.name}</h2>
+        <f:format.html >{selectedProject.description}</f:format.html>
+        <f:for each="{selectedProject.tags}" as="tag">
+            <f:link.action action="list" arguments="{selectedTag: tag}">{tag.name}</f:link.action>
+        </f:for>
+    </div>
     <div class="imageslist">
         <f:for each="{selectedProject.images}" as="image">
             <f:image src="uploads/pics/{image.file}" alt="{image.alttext}" width="200px" />

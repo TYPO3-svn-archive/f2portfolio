@@ -118,6 +118,7 @@ class Tx_F2portfolio_Controller_ProjectController extends Tx_Extbase_MVC_Control
          */
         public function listAction(Tx_F2portfolio_Domain_Model_Tag $selectedTag = NULL){
             $this->view->assign('projects', $selectedTag->getProjects());
+            $this->view->assign('numProjects', $selectedTag->getProjects()->count());
             $this->view->assign('tag', $selectedTag);
         }
 
@@ -139,7 +140,7 @@ class Tx_F2portfolio_Controller_ProjectController extends Tx_Extbase_MVC_Control
             $stylesheet = str_replace('EXT:', t3lib_extMgm::siteRelPath('f2portfolio'), $stylesheet);
 
             //different solution to add the css if the action is cached or uncached
-            if($this->request->isCached()){ 
+            if($this->request->isCached()){
                 $GLOBALS['TSFE']->getPageRenderer()->addCssFile($stylesheet);
             }else{
 
