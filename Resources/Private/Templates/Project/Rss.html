@@ -1,0 +1,22 @@
+{namespace f2portfolio=Tx_F2portfolio_ViewHelpers}
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:media="http://search.yahoo.com/mrss/"
+xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+    <f:for each="{projects}" as="project">
+        <item>
+            <title>{project.name}</title>
+            <description>
+                <f:format.html >{project.description}</f:format.html>
+            </description>
+            <link><f:uri.action action="show" arguments="{selectedProject: project}">{project.name}</f:uri.action></link>
+            <f:for each="{project.images}" as="image">
+                            <f:if condition="{f2portfolio:pregmatch(subject: '{image.name}', pattern: '~Thumbnail~')}">
+                                <media:thumbnail url="{f:uri.image( src:'uploads/pics/{image.file}', width:'200px' )}"/>
+                            </f:if>
+            </f:for>
+        </item>
+    </f:for>
+    </channel>
+</rss>
+
