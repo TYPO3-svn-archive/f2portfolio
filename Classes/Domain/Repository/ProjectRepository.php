@@ -42,13 +42,13 @@ class Tx_F2portfolio_Domain_Repository_ProjectRepository extends Tx_Extbase_Pers
     /**
      * List of projects ordered by date descending
      * @param integer $limit
+     * @param string $findOutstandings
      * @return array
      */
-    public function findLatests($limit = 5,$findOutstandings){
+    public function findLatests($limit = 5,$findOutstandings=''){
         $query = $this->createQuery();
-        switch($findOutstandings){
-            
-            case true:
+        switch($findOutstandings){         
+            case 'yes':
                 return $query->matching(
                             $query->equals('outstanding', true)
                     )
@@ -56,7 +56,7 @@ class Tx_F2portfolio_Domain_Repository_ProjectRepository extends Tx_Extbase_Pers
                     ->setLimit((integer)$limit)
                     ->execute();
                 break;
-            case false:
+            case 'no':
                 return $query->matching(
                             $query->equals('outstanding', false)
                     )
@@ -64,7 +64,7 @@ class Tx_F2portfolio_Domain_Repository_ProjectRepository extends Tx_Extbase_Pers
                     ->setLimit((integer)$limit)
                     ->execute();
                 break;
-            default:
+            case '':
                 return $query
                         ->setOrderings(array('date' => Tx_Extbase_Persistence_QueryInterface::ORDER_DESCENDING))
                         ->setLimit((integer)$limit)

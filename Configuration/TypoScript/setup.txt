@@ -16,4 +16,43 @@ plugin.tx_f2portfolio.settings {
     show{
         stylesheet = EXT:Resources/Public/Stylesheets/f2portfolio.css
     }
+    rss{
+        maxProjects = 3
+    }
+}
+plugin.tx_f2portfolio{
+    persistence {
+        storagePid = 1
+    }
+}
+
+xml = PAGE
+xml {
+    typeNum = 4657567
+    10 = USER
+    10 {
+        userFunc = tx_extbase_dispatcher->dispatch
+        pluginName = Pi1
+        extensionName = f2portfolio
+        controller = Project
+        switchableControllerActions {
+            1 {
+                controller = Project
+                actions = rss
+            }
+        }
+        action = rss
+        settings < plugin.tx_f2portfolio.settings
+        persistence =< plugin.tx_f2portfolio.persistence
+        view =< plugin.tx_f2portfolio.view
+
+    }
+
+    config {
+        disableAllHeaderCode = 1
+        additionalHeaders = Content-type:application/xml
+        xhtml_cleaning = none
+        admPanel = 0
+        absRefPrefix = http://typo44.localhost/
+    }
 }

@@ -104,12 +104,20 @@ class Tx_F2portfolio_Controller_ProjectController extends Tx_Extbase_MVC_Control
 
             //BEGIN Outstanding projects list
             $outstandingProjects = $this->projectRepository->findOutstandings();
-            if(count($outstandingProjects)<$this->settings['main']['maxProjects']['projectsList']){
-                $outstandingProjects = array_merge($outstandingProjects,$this->projectRepository->findLatests($this->settings['main']['maxProjects']-count($outstandingProjects),false));
+            if(count($outstandingProjects)<$this->settings['main']['projectsList']['maxProjects']){
+                $outstandingProjects = array_merge($outstandingProjects,$this->projectRepository->findLatests($this->settings['main']['projectsList']['maxProjects']-count($outstandingProjects),$findOutstandings='no'));
             }
             $this->view->assign('outstandignProjects',$outstandingProjects);
             //END Outstanding projects list
 
+        }
+
+        /**
+         * @return string rendered rss action
+         */
+        public function rssAction(){
+            $latestsProjects = $this->projectRepository->findLatests($this->settings['rss']['maxProjects']);
+            $this->view->assign('projects',$latestsProjects);
         }
 
         /**
