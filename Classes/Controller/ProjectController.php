@@ -125,6 +125,7 @@ class Tx_F2portfolio_Controller_ProjectController extends Tx_Extbase_MVC_Control
          * @return string rendered view of projects by tag
          */
         public function listAction(Tx_F2portfolio_Domain_Model_Tag $selectedTag = NULL){
+            $this->addStylesheet();
             $this->view->assign('projects', $selectedTag->getProjects());
             $this->view->assign('numProjects', $selectedTag->getProjects()->count());
             $this->view->assign('tag', $selectedTag);
@@ -136,6 +137,7 @@ class Tx_F2portfolio_Controller_ProjectController extends Tx_Extbase_MVC_Control
          * @return string rendered view of the selected project
          */
         public function showAction(Tx_F2portfolio_Domain_Model_Project $selectedProject = NULL){
+            $this->addStylesheet();
             $this->view->assign('selectedProject', $selectedProject);
         }
 
