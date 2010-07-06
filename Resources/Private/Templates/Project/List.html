@@ -3,5 +3,7 @@
     <h1>List view</h1>
     <h2>{tag.name}</h2>
     <h3>{numProjects} projects</h3>
-    <f:render partial="projectslist" arguments="{projects : projects}" />
+    <div class="tagProjects">
+        <f:render partial="projectslist" arguments="{projects : projects}" />
+    </div>
 </f:section>

@@ -3,5 +3,7 @@
 <f:section name="content">
     <f:cObject typoscriptObjectPath="plugin.tx_f2portfolio.settings.main.preContent" />
     <f2portfolio:tagcloud tagcloudItems="{tagcloudItems}" />
-    <f:render partial="projectslist" arguments="{projects : outstandignProjects}" />
+    <div class="outstandignProjects">
+        <f:render partial="projectslist" arguments="{projects : outstandignProjects}" />
+    </div>
 </f:section>
