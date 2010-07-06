@@ -1,0 +1,85 @@
+@charset "utf-8";
+
+/* MAIN */
+.tx-f2portfolio-pi1 .tagcloud{
+    float: right;
+    width: 30%;
+    list-style: none;
+}
+    .tx-f2portfolio-pi1 .tagcloud li{
+        float: left;
+        padding: 3px;
+    }
+        .tx-f2portfolio-pi1 .tagcloud li.clouditem-100{
+            font-size: 160%;
+            font-weight: bold;
+        }
+        .tx-f2portfolio-pi1 .tagcloud li.clouditem-90{
+            font-size: 150%;
+            font-weight: bold;
+        }
+        .tx-f2portfolio-pi1 .tagcloud li.clouditem-80{
+            font-size: 145%;
+            font-weight: bold;
+        }
+        .tx-f2portfolio-pi1 .tagcloud li.clouditem-70{
+            font-size: 140%;
+            font-weight: bold;
+        }
+        .tx-f2portfolio-pi1 .tagcloud li.clouditem-60{
+            font-size: 135%;
+        }
+        .tx-f2portfolio-pi1 .tagcloud li.clouditem-50{
+            font-size: 125%;
+        }
+        .tx-f2portfolio-pi1 .tagcloud li.clouditem-40{
+            font-size: 120%;
+        }
+        .tx-f2portfolio-pi1 .tagcloud li.clouditem-30{
+            font-size: 110%;
+        }
+        .tx-f2portfolio-pi1 .tagcloud li.clouditem-20{
+            font-size: 100%;
+        }
+        .tx-f2portfolio-pi1 .tagcloud li.clouditem-10{
+            font-size: 95%;
+        }
+        .tx-f2portfolio-pi1 .tagcloud li.clouditem-0{
+            font-size: 80%;
+        }
+        .tx-f2portfolio-pi1 .tagcloud li a{
+            padding: 5px;
+        }
+        
+/* PROJECTLIST */
+.tx-f2portfolio-pi1 .outstandignProjects .projectslist{
+    float: left;
+    width: 65%;
+}
+.tx-f2portfolio-pi1 .tagProjects .projectslist{
+    float: left;
+    width: 100%;
+}
+.tx-f2portfolio-pi1 .projectmini{
+    padding: 7px;
+    float: left;
+}
+    .tx-f2portfolio-pi1 .outstandignProjects .projectmini{
+        width: 31%;
+    }
+    .tx-f2portfolio-pi1 .tagProjects .projectmini{
+        width: 23%;
+    }
+    .tx-f2portfolio-pi1 .projectmini h4{
+        margin: 10px 0px 5px 0px;
+    }
+    
+/* SHOW */
+.tx-f2portfolio-pi1 .projectDetail{
+    float: left;
+    width: 30%;
+}
+.tx-f2portfolio-pi1 .imageslist{
+    float: right;
+    width: 65%;
+}
