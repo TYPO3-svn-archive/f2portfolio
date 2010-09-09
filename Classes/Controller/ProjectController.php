@@ -79,7 +79,7 @@ class Tx_F2portfolio_Controller_ProjectController extends Tx_Extbase_MVC_Control
 	 */
 	protected function initializeAction() {
 		$this->projectRepository = t3lib_div::makeInstance('Tx_F2portfolio_Domain_Repository_ProjectRepository');
-                $this->tagRepository = t3lib_div::makeInstance('Tx_F2portfolio_Domain_Repository_TagRepository');
+        $this->tagRepository = t3lib_div::makeInstance('Tx_F2portfolio_Domain_Repository_TagRepository');
 	}
 
 	
